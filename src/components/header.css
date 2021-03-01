@@ -1,0 +1,10 @@
+.logo {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 10px;
+}
+
+.line {
+    margin-top: 2rem;
+    border-bottom: 2px solid gray;
+}

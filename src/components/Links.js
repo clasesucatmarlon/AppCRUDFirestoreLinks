@@ -89,24 +89,25 @@ const Links = () => {
                                         className="material-icons text-danger"
                                     >
                                         delete
-                  </i>
-                  &nbsp;&nbsp;&nbsp;&nbsp;
-                  <i
+                                    </i>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;
+                                    <i
                                         onClick={() => setCurrentId(item.id)}
                                         className="material-icons text-info"
                                     >
                                         edit
-                  </i>
+                                    </i>
                                 </div>
                             </div>
                             <p>{item.description}</p>
                             <a href={item.url} target="-blank" rel="noopener noreferrer">
                                 Go to Website
-              </a>
+                            </a>
                         </div>
                     </div>
                 ))}
             </div>
+            <div className="border-divided py-4"></div>
         </>
     );
 };
