@@ -12,7 +12,7 @@ function App() {
 
 
   return (
-    <div className="container bg-secondary">
+    <div className="container bg-secondary p-5">
       <div className="row d-flex flex-column align-items-center">
         <Links />
       </div>

@@ -53,6 +53,7 @@ const LinkForm = (props) => {
         setValues({ ...doc.data() })
     }
 
+
     // Check for id 
     useEffect(() => {
         if (props.currentId === '') {
@@ -64,7 +65,7 @@ const LinkForm = (props) => {
     }, [props.currentId])
 
     return (
-        <form className="card card-body" onSubmit={handleSubmit}>
+        <form className="card card-body shadows-all" onSubmit={handleSubmit}>
             <div className="form-group input-group">
                 <div className="input-group-text bg-primary">
                     <i className="material-icons">insert_link</i>

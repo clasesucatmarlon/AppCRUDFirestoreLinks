@@ -3,28 +3,29 @@ import LinkForm from "./LinkForm";
 
 import { db } from "../firebase";
 
+import "../App.css";
 // Import from Toastify methods for create messages
-import { toast } from 'react-toastify';
+import { toast } from "react-toastify";
 
 const Links = () => {
     const [links, setLinks] = useState([]);
-    const [currentId, setCurrentId] = useState('');
+    const [currentId, setCurrentId] = useState("");
 
     // Add or Updated element
     const addOrEdit = async (linkObject) => {
         //console.log(linkObject);
         try {
-            if (currentId === '') {
+            if (currentId === "") {
                 await db.collection("link").doc().set(linkObject);
-                toast('The register was added in the Database !!! ', {
-                    type: 'success'
-                })
-            } else {
-                await db.collection('link').doc(currentId).update(linkObject);
-                toast('The register was updated in the Database !!! ', {
-                    type: 'info'
+                toast("The register was added in the Database !!! ", {
+                    type: "success",
                 });
-                setCurrentId('');
+            } else {
+                await db.collection("link").doc(currentId).update(linkObject);
+                toast("The register was updated in the Database !!! ", {
+                    type: "info",
+                });
+                setCurrentId("");
             }
         } catch (error) {
             console.error(error);
@@ -33,14 +34,14 @@ const Links = () => {
 
     // Delete element
     const onDelete = async (id) => {
-        if (window.confirm('Are you sure you want to delete....? ')) {
-            await db.collection('link').doc(id).delete();
-            toast('The register was removed successfylly of the Database !!! ', {
-                type: 'warning',
-                autoClose: 2500
-            })
+        if (window.confirm("Are you sure you want to delete....? ")) {
+            await db.collection("link").doc(id).delete();
+            toast("The register was removed successfully of the Database !!! ", {
+                type: "warning",
+                autoClose: 2500,
+            });
         }
-    }
+    };
 
     // Charget data
     useEffect(() => {
@@ -62,42 +63,50 @@ const Links = () => {
 
     return (
         <>
-            <div className="col-md-6 ">
-                <h3 className="mt-4 mb-3 text-center text-primary font-weight-bold">
+            <div className="col-md-6 bor">
+                <h3 className="mt-4 mb-4 text-center text-warning font-weight-bold">
                     Manage Links
-                </h3>
+        </h3>
                 <LinkForm {...{ addOrEdit, currentId, links }} />
             </div>
+            <div className="border-divided py-4"></div>
 
             <div className="col-md-5">
-                <h3 className="mt-4 mb-0 text-center text-primary font-weight-bold">
+                <h3 className="mt-4 mb-0 text-center text-warning font-weight-bold">
                     List of Links
-                </h3>
-                <p className="mb-3 text-center text-primary">
+        </h3>
+                <p className="mb-4 text-center text-warning ">
                     (Total links: {links.length})
-                </p>
+        </p>
                 {links.map((item) => (
-                    <div className="card mb-2 p-2" key={item.id}>
-
+                    <div className="card mb-4 p-2 shadows-all" key={item.id}>
                         <div className="card-body">
                             <div className="d-flex justify-content-between ">
                                 <h4>{item.name}</h4>
                                 <div>
-                                    <i onClick={() => onDelete(item.id)} className="material-icons text-danger">delete</i>
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <i onClick={() => setCurrentId(item.id)} className="material-icons text-info">edit</i>
+                                    <i
+                                        onClick={() => onDelete(item.id)}
+                                        className="material-icons text-danger"
+                                    >
+                                        delete
+                  </i>
+                  &nbsp;&nbsp;&nbsp;&nbsp;
+                  <i
+                                        onClick={() => setCurrentId(item.id)}
+                                        className="material-icons text-info"
+                                    >
+                                        edit
+                  </i>
                                 </div>
                             </div>
                             <p>{item.description}</p>
                             <a href={item.url} target="-blank" rel="noopener noreferrer">
-                                Go to siteeb
-                            </a>
+                                Go to Website
+              </a>
                         </div>
-
                     </div>
                 ))}
             </div>
-
         </>
     );
 };
