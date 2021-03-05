@@ -14,7 +14,7 @@ const Footer = () => {
                 <p>Marlon García&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;Medellín, 2021</p>
             </div>
 
-            <div className="d-flex justify-content-center">
+            <div className="d-flex justify-content-center mb-5">
                 <spam className="font-weight-bold text-warning">email:&nbsp;&nbsp;&nbsp;&nbsp;</spam> 
                 <p>clasesucatmarlon@gmail.com</p>
             </div>

@@ -63,26 +63,40 @@ const Links = () => {
 
     return (
         <>
-            <div className="col-md-6 bor">
-                <h3 className="mt-4 mb-4 text-center text-warning font-weight-bold">
-                    Manage Links
-        </h3>
-                <LinkForm {...{ addOrEdit, currentId, links }} />
-            </div>
-            <div className="border-divided py-4"></div>
-
-            <div className="col-md-5">
+            <div className="col-12 bg-secondary">
+                <div className="col-12 col-md-6  ml-auto mr-auto">
+                    <h3 className="mt-2 mb-4 text-center text-warning font-weight-bold">
+                        Manage Links
+                    </h3>
+                    <LinkForm {...{ addOrEdit, currentId, links }} />
+                </div>
+            <div className="border-divided py-4 ml-auto mr-auto mb-5"></div>
+            <div className="col-md-12">
                 <h3 className="mt-4 mb-0 text-center text-warning font-weight-bold">
                     List of Links
-        </h3>
+                </h3>
                 <p className="mb-4 text-center text-warning ">
                     (Total links: {links.length})
-        </p>
+                </p>
+            </div>
+            </div>
+
+
+
+            <div className="d-flex flex-wrap justify-content-around p-3"> 
+            {/* {
+                console.table(links.sort(((a, b) => a.url - b.url)))
+            } */}
+            {/* {console.log(links)} */}
                 {links.map((item) => (
-                    <div className="card mb-4 p-2 shadows-all" key={item.id}>
+                    <div className="card mb-4 p-1 shadows-all col-md-5" key={item.id}>
                         <div className="card-body">
                             <div className="d-flex justify-content-between ">
-                                <h4>{item.name}</h4>
+                            <h4>
+                                <a href={item.url} target="-blank" rel="noopener noreferrer">
+                                    {item.name}
+                                </a>
+                            </h4>
                                 <div>
                                     <i
                                         onClick={() => onDelete(item.id)}
@@ -100,13 +114,14 @@ const Links = () => {
                                 </div>
                             </div>
                             <p>{item.description}</p>
-                            <a href={item.url} target="-blank" rel="noopener noreferrer">
-                                Go to Website
-                            </a>
                         </div>
                     </div>
                 ))}
             </div>
+
+
+
+
             <div className="border-divided py-4"></div>
         </>
     );

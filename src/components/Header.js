@@ -5,10 +5,10 @@ import Logo from "../images/logoMarlonGarcia_02.png";
 
 const Header = () => {
     return (
-        <div className="container-fluid mt-0 line d-flex justify-content-between align-items-end mb-5">
+        <div className="container-fluid mt-0 line d-flex flex-column  mb-5">
             
-            <img className="logo" src={Logo} alt="Logo Marlon García"></img>
-            <h3 className="text-second">Web administration link</h3>
+            <img className="logo ml-auto mr-auto" src={Logo} alt="Logo Marlon García"></img>
+            <h3 className="text-second ml-auto mr-auto text-center">Link administration</h3>
         </div>
     );
 };
